@@ -102,16 +102,16 @@
 
         // Render search results
         function renderResults(results) {
-            resultsContainer.innerHTML = results.map(company => `
-                <div class="bg-white shadow-md rounded-lg p-4 hover:shadow-xl transition-shadow">
-                    <h2 class="text-xl font-semibold text-blue-700 mb-2">${company.name}</h2>
-                    <div class="space-y-1">
-                        <p class="text-gray-600"><strong>Hall:</strong> ${company.hall}</p>
-                        <p class="text-gray-600"><strong>Stall(s):</strong> ${company.stalls}</p>
-                    </div>
-                </div>
-            `).join('');
-        }
+    resultsContainer.innerHTML = results.map(company => `
+        <div class="bg-white shadow-md rounded-lg p-4 hover:shadow-xl transition-shadow">
+            <h2 class="text-xl font-semibold text-blue-700 mb-2">${company.name}</h2>
+            <div class="space-y-1">
+                <p class="text-gray-600"><strong>Hall:</strong> ${company.hall}</p>
+                <p class="text-gray-600"><strong>Stall(s):</strong> ${company.stalls || company.stall}</p>
+            </div>
+        </div>
+    `).join('');
+}
 
         // Search handler
         searchInput.addEventListener('input', (e) => {
